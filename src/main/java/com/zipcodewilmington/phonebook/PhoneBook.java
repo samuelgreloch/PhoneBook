@@ -13,7 +13,7 @@ public class PhoneBook {
     private final Map<String, List<String>> phonebook;
 
     public PhoneBook(Map<String, List<String>> map) {
-      this.phonebook = new HashMap<>();
+      this.phonebook = new LinkedHashMap<>();
     }
 
     public PhoneBook() {
@@ -55,6 +55,7 @@ return null;
     }
 
     public Boolean hasEntry(String name) {
+
         return phonebook.containsKey(name);
     }
 
@@ -62,6 +63,7 @@ return null;
 
         return new ArrayList<>(phonebook.keySet());
     }
+
 
     public Map<String, List<String>> getMap() {
         return phonebook;
