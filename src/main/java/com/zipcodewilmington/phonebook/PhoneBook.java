@@ -30,14 +30,17 @@ public class PhoneBook {
 
     public void addAll(String name, String... phoneNumbers) {
 
-        
+        List<String> phones = phonebook.computeIfAbsent(name, k -> new ArrayList<>());
+        phones.addAll(Arrays.asList(phoneNumbers));
+
     }
 
     public void remove(String name) {
+        phonebook.remove(name);
     }
 
-    public Boolean hasEntry(String name) {
-        return null;
+    public Boolean hasEntry(String name, String phoneNumber) {
+        return phonebook.containsKey(name);
     }
 
     public List<String> lookup(String name) {
